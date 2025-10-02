@@ -15913,7 +15913,7 @@ limit 10;
 SELECT ar.name as Artist_name, SUM(i.quantity*i.unit_price) as Sales
 FROM artist ar
 INNER JOIN album a on a.artist_id=ar.artist_id
-INNER JOIN track t on t.album_id= t.album_id
+INNER JOIN track t on t.album_id= a.album_id
 Inner Join invoice_line i on t.track_id = i.track_id
 group by ar.name
 order BY Sales  desc
